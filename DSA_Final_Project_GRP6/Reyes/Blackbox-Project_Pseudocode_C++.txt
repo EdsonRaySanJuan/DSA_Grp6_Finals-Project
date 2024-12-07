@@ -1,0 +1,67 @@
+Function: Login
+
+While loggedIn is false:
+	Prompt user for email and password.
+	If user inputs "N", return to login menu.
+	Search accounts.txt for matching email and password.
+	If match found:
+		Set loggedIn = true.
+		Display success message.
+	Else:
+		Display error message.
+-----------------------------------------------------------------
+Function: SignUp
+
+Prompt user for email:
+	If email exists in accounts.txt, display error and retry.
+	Else:
+		Prompt for student number and password.
+		Save to accounts.txt.
+		Display success message.
+-----------------------------------------------------------------
+Function: SubmitLostItem
+
+Create new LostItem with details:
+	Prompt for itemName, locationLost, dateLost, contactInfo.
+	If user inputs "N", return to main menu.
+Increment itemCounter and assign itemID.
+Save LostItem to linked list (lostItemsHead) and lost_items.txt.
+Display confirmation.
+-----------------------------------------------------------------
+Function: SearchForItems
+
+Display all items with status Lost from lost_items.txt.
+Prompt user for itemID to claim:
+	If "N", return to main menu.
+	Else:
+		Mark item as Claimed in lost_items.txt.
+		Display confirmation.
+-----------------------------------------------------------------
+Function: ListOfItems
+
+Read all items from lost_items.txt.
+Display all items in a formatted table.
+Free memory used by the linked list.
+-----------------------------------------------------------------
+Function: ViewClaimedItems
+
+Read all items from lost_items.txt with status Claimed.
+Display claimed items in a formatted table.
+Free memory used by the linked list.
+-----------------------------------------------------------------
+Main Function:
+
+Call Intro().
+Loop until user logs in or exits:
+	Display ShowLoginMenu().
+	Based on choice:
+		Call Login().
+		Call SignUp().
+	Exit program if chosen.
+If loggedIn is true:
+	Loop until user exits main menu:
+		Display ShowMainMenu().
+		Based on choice:
+			Call appropriate function (SubmitLostItem, 				SearchForItems, ListOfItems, ViewClaimedItems).
+			Exit program if chosen.
+
